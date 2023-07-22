@@ -1,0 +1,14 @@
+{
+  "Test 1" : {
+    "name" : "Tomi",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Tomi_Adeyemi_2020.JPG",
+    "role": "test 1",
+    "uid": ""
+  },
+  "Test 2" : {
+    "name" : "Barack",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg",
+    "role": "test 2",
+    "uid": ""
+  }
+}
