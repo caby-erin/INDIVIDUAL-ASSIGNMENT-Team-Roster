@@ -2,9 +2,14 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { deleteMember } from '../api/memberData';
 
-function MemberCard({ memberObj }) {
-  console.warn('hello');
+function MemberCard({ memberObj, onUpdate }) {
+  const deleteThisMember = () => {
+    if (window.confirm(`Delete ${memberObj.name}?`)) {
+      deleteMember(memberObj.firebaseKey).then(() => onUpdate());
+    }
+  };
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
@@ -19,7 +24,7 @@ function MemberCard({ memberObj }) {
         <Link href={`/member/edit/${memberObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
-        <Button variant="danger" className="m-2">
+        <Button variant="danger" onClick={deleteThisMember} className="m-2">
           DELETE
         </Button>
       </Card.Body>
@@ -34,6 +39,7 @@ MemberCard.propTypes = {
     role: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default MemberCard;
