@@ -17,10 +17,24 @@ function Home() {
 
   return (
     <div className="d-flex flex-wrap">
-      <h1 className="title">Team</h1>
-      {members.map((member) => (
-        <MemberCard key={member.firebaseKey} memberObj={member} onUpdate={getAllTheMembers} />
-      ))}
+      <div className="title-container" style={{ display: 'flex', width: '100%' }}>
+        <h1
+          className="title"
+          style={{
+            padding: '10px 20px',
+            textAlign: 'center',
+            color: 'white',
+            margin: '100px',
+            width: '100%',
+          }}
+        >Team
+        </h1>
+      </div>
+      <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap-reverse', justifyContent: 'space-evenly' }}>
+        {members.map((member) => (
+          <MemberCard key={member.firebaseKey} memberObj={member} onUpdate={getAllTheMembers} />
+        ))}
+      </div>
     </div>
   );
 }
